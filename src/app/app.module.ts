@@ -9,6 +9,8 @@ import { ProductGetComponent } from './product-get/product-get.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ProductsService } from './products.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,9 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     SlimLoadingBarModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [ ProductsService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
