@@ -6,11 +6,15 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ProductsService {
-
+  getProducts() {
+    return this
+           .http
+           .get(`${this.uri}`);
+  }
   uri = 'http://localhost:4000/products';
 
   constructor(private http: HttpClient) { }
-
+  
   addProduct(ProductName, ProductDescription, ProductPrice) {
     const obj = {
       ProductName,
