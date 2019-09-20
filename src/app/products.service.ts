@@ -9,7 +9,11 @@ export class ProductsService {
   uri = 'http://localhost:4000/products';
 
   constructor(private http: HttpClient) { }
-
+  deleteProduct(id) {
+    return this
+              .http
+              .get(`${this.uri}/delete/${id}`);
+  }
   addProduct(ProductName, ProductDescription, ProductPrice) {
     console.log(ProductName, ProductDescription, ProductPrice);
     const obj = {
@@ -31,6 +35,7 @@ export class ProductsService {
       .post(`${this.uri}/update/${id}`, obj)
       .subscribe(res => console.log('Done'));
 }
+
   getProducts() {
     return this
            .http
